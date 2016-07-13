@@ -1,0 +1,4 @@
+<div class="jumbotron">
+  <h2>HexMirror</h2>
+  <p class="lead">A simple mirror for <a href="https://hex.pm">hex.pm</a>
+</div>

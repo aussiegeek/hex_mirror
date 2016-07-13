@@ -1,0 +1,11 @@
+<h1>Packages</h1>
+
+<ul>
+  <%= for package <- @packages do %>
+    <li>
+      <%= package %>
+      <br/>
+      <%= package_versions(package) %>
+    </li>
+  <% end %>
+</ul>

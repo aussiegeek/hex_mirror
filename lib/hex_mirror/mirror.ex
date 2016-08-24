@@ -33,6 +33,9 @@ This module is responsible for actually downloading the hex registry, and then d
           File.write!(version_path(package, version), body)
           IO.puts "Downloading #{package} #{version}"
           {:ok, :downloaded}
+        {:error, %HTTPoison.Error{id: id, reason: reason}} ->
+          IO.puts "*** Error #{id}: downloading #{package} #{version}"
+          IO.puts "*** Reason: #{reason}"
       end
     end
   end

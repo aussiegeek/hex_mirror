@@ -2,8 +2,9 @@ defmodule HexMirror.Mirror do
   @moduledoc """
 This module is responsible for actually downloading the hex registry, and then downloading all packages to disk
 """
-  
+
   def fetch do
+    ensure_tarball_dir()
     Hex.Utils.ensure_registry!()
     Hex.Registry.all_packages()
     |> Enum.each(fn(pkg) -> fetch_versions(pkg)end)
@@ -33,6 +34,14 @@ This module is responsible for actually downloading the hex registry, and then d
           IO.puts "Downloading #{package} #{version}"
           {:ok, :downloaded}
       end
+    end
+  end
+
+  defp ensure_tarball_dir do
+    path = tarball_path
+    case File.mkdir_p(path) do
+      :ok -> path
+      {:error, _} -> nil
     end
   end
 end

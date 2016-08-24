@@ -28,6 +28,12 @@ mix phoenix.server
 mix hex.config mirror_url http://thing.local
 ```
 
+If you've finished using this mirror, you will want unset `mirror_url`:
+
+```bash
+mix hex.config mirror_url
+```
+
 ## TODO
 * [ ] Mirror hex installer
 * [ ] Configuration instructions

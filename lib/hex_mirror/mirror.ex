@@ -7,7 +7,6 @@ This module is responsible for actually downloading the hex registry, and then d
     Hex.Utils.ensure_registry!()
     Hex.Registry.all_packages()
     |> Enum.each(fn(pkg) -> fetch_versions(pkg)end)
-    IO.puts "checks complete"
   end
 
   def tarball_path, do: Application.get_env(:hex_mirror, :tarball_path, Path.expand("./tarballs"))

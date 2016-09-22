@@ -42,9 +42,6 @@ This module is responsible for actually downloading the hex registry, and then d
 
   defp ensure_tarball_dir do
     path = tarball_path
-    case File.mkdir_p(path) do
-      :ok -> path
-      {:error, _} -> nil
-    end
+    :ok = File.mkdir_p(path)
   end
 end
